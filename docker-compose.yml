@@ -5,6 +5,8 @@ services:
     environment:
       - POSTGRES_PASSWORD=odoo
       - POSTGRES_USER=odoo
+    volumes:
+      - ./volumes/postgres:/var/lib/postgresql/data
 
   odoo11:
     image: odoo:11.0
