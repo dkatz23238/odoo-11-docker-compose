@@ -7,13 +7,15 @@ services:
       - POSTGRES_USER=odoo
     volumes:
       - ./volumes/postgres:/var/lib/postgresql/data
+    ports:
+      - "localhost:5432:5432"
 
   odoo11:
     image: odoo:11.0
     depends_on:
       - db
     ports:
-      - "8070:8069"
+      - "localhost:8070:8069"
     tty: true
     command: -- --dev=reload
 #    command: odoo scaffold /mnt/extra-addons/test_module
